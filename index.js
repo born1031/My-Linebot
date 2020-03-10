@@ -10,6 +10,21 @@ var bot = linebot({
 bot.on('message', function(event){
     // Print event.
     console.log(event);
+
+    // Reply message
+    if(event.message.type = 'text'){
+        // Get message form event that type of text.
+        var msg = event.message.text;
+
+        // Reply the same message to chat room.
+        event.reply(msg).then(function(data){
+            // success
+            console.log(msg);
+        }).catch(function(err){
+            // error
+            console.log('error');
+        });
+    }
 });
 
 const app = express();
