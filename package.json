@@ -1,9 +1,10 @@
 {
-  "name": "my-linebot",
+  "name": "My-Linebot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "linebot": "^1.5.3"
   },
   "devDependencies": {},
@@ -15,6 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/born1031/My-Linebot.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
