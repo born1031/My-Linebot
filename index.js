@@ -16,14 +16,22 @@ bot.on('message', function(event){
         // Get message form event that type of text.
         var msg = event.message.text;
 
-        // Reply the same message to chat room.
-        event.reply(msg).then(function(data){
-            // success
-            console.log(msg);
-        }).catch(function(err){
-            // error
-            console.log('error');
-        });
+        if(msg == 'Hello'){
+            event.reply('你好，今天好嗎？').then(function(data){
+                console.log('你好，今天好嗎？');
+            }).catch(function(err){
+                console.log('error');
+            });
+        }else{
+            // Reply the same message to chat room.
+            event.reply(msg).then(function(data){
+                // success
+                console.log(msg);
+            }).catch(function(err){
+                // error
+                console.log('error');
+            });
+        };
     }
 });
 
