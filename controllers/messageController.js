@@ -27,7 +27,7 @@ function _anser(event, userProfile){
                 anserMsg = receivedMsg;
                 break;
             default:
-                anserMsg = '不知道"' + message + '"是什麼意思？';
+                anserMsg = '不知道"' + receivedMsg + '"是什麼意思？';
         };
 
         // Reply message to chat room.
