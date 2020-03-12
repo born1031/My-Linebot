@@ -38,6 +38,10 @@ function _bot() {
             console.log(profile.pictureUrl);
             console.log(profile.statusMessage);
         });
+
+        var userProfile = {
+
+        };
         
         // Reply messages in messageController.
         messenger(event, userProfile);
