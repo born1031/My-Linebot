@@ -20,7 +20,7 @@ function _anser(event){
             case 'Hello': 
                 event.source.profile().then(function(profile){
                     // anserMsg.push('Hello ' + profile.displayName + '，我能幫你什麼忙嗎？');
-                    event.reply('Hello ' + profile.displayName + '，我能幫你什麼忙嗎？');
+                    event.reply(['Hello ' + profile.displayName + '，我能幫你什麼忙嗎？', '這是第二句話']);
                 });
                 return;
             case '重複我說的話':
