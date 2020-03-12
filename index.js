@@ -27,7 +27,7 @@ function _bot() {
         console.log(event);
 
         // Get user profile.
-        var userProfile = bot.getUserProfile(event.source.useId);
+        var userProfile = event.source.profile(event.source.useId);
         console.log('This is profile');
         console.log(userProfile);
         
