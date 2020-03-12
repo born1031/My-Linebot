@@ -2,7 +2,6 @@ const options = [
     
 ];
 
-
 function _anser(event){
 
     // Reply message when message type is text.
