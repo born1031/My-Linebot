@@ -3,14 +3,11 @@ const options = [
 ];
 
 
-function _anser(event, userProfile){
+function _anser(event){
 
     // Reply message when message type is text.
     if(event.message.type = 'text'){
-        
-        // Get user name.
-        var userName = userProfile.displayName;
-
+    
         // Received message.
         var receivedMsg = event.message.text;
 
@@ -21,7 +18,10 @@ function _anser(event, userProfile){
             case '嗨':
             case '哈囉':
             case 'Hello': 
-                anserMsg.push('Hello ' + userName + '，我能幫你什麼忙嗎？');
+                //anserMsg.push('Hello ' + userName + '，我能幫你什麼忙嗎？');
+                event.source.profile().then(function(profile){
+                    event.reply('Hello ' + profile.displayName);
+                });
                 break;
             case '重複我說的話':
                 anserMsg.push(receivedMsg);
@@ -31,13 +31,13 @@ function _anser(event, userProfile){
         };
 
         // Reply message to chat room.
-        event.reply(anserMsg).then(function(data){
-            // success
-            console.log(msg);
-        }).catch(function(err){
-            // error
-            console.log('error');
-        });
+        // event.reply(anserMsg).then(function(data){
+        //     // success
+        //     console.log(msg);
+        // }).catch(function(err){
+        //     // error
+        //     console.log('error');
+        // });
     };
 };
 

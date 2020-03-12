@@ -30,16 +30,8 @@ function _bot() {
     bot.on('message', function(event){
         // Print event.
         console.log(event);
-
-        // Get user profile.
-        var userProfile = {};
-        line_client.getProfile(event.source.userId).then((profile) => {
-            userProfile.displayName = profile.displayName;
-            userProfile.userId = profile.userId;
-        });
-        console.log(userProfile);
         
         // Reply messages in messageController.
-        messenger(event, userProfile);
+        messenger(event);
     });
 };
