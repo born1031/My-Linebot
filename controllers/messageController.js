@@ -18,9 +18,9 @@ function _anser(event){
             case '嗨':
             case '哈囉':
             case 'Hello': 
-                //anserMsg.push('Hello ' + userName + '，我能幫你什麼忙嗎？');
                 event.source.profile().then(function(profile){
-                    event.reply('Hello ' + profile.displayName);
+                    anserMsg.push('Hello ' + profile.displayName + '，我能幫你什麼忙嗎？');
+                    //event.reply('Hello ' + profile.displayName);
                 });
                 break;
             case '重複我說的話':
@@ -31,13 +31,13 @@ function _anser(event){
         };
 
         // Reply message to chat room.
-        // event.reply(anserMsg).then(function(data){
-        //     // success
-        //     console.log(msg);
-        // }).catch(function(err){
-        //     // error
-        //     console.log('error');
-        // });
+        event.reply(anserMsg).then(function(data){
+            // success
+            console.log(msg);
+        }).catch(function(err){
+            // error
+            console.log('error');
+        });
     };
 };
 
