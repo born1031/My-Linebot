@@ -1,6 +1,6 @@
 const options = [
     
-]
+];
 
 
 function _anser(event, userProfile){
@@ -21,13 +21,13 @@ function _anser(event, userProfile){
             case '嗨':
             case '哈囉':
             case 'Hello': 
-                anserMsg.push = 'Hello ' + userName + '，我能幫你什麼忙嗎？';
+                anserMsg.push('Hello ' + userName + '，我能幫你什麼忙嗎？');
                 break;
             case '重複我說的話':
-                anserMsg = receivedMsg;
+                anserMsg.push(receivedMsg);
                 break;
             default:
-                anserMsg = '不知道"' + receivedMsg + '"是什麼意思？';
+                anserMsg.push('不知道"' + receivedMsg + '"是什麼意思？');
         };
 
         // Reply message to chat room.
