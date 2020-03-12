@@ -11,7 +11,7 @@ var bot = linebot({
 
 var line_client = new line.Client({
     channelAccessToken: '72jIJyLaqwIKgS5XDmxFx++2s2lcMQXp9ARTPBC7BeHRlObrN7swCwwfJPDcso6nr94n5F3EbXkDCPhWD4325w4fBkRyvYL5I0Uq7bJiOz+Yeiof37Hi4WYZpzoIThvUW+zCppKpLF5pGmIoQ6phjwdB04t89/1O/w1cDnyilFU='
-})
+});
 
 _bot();
 
@@ -32,8 +32,12 @@ function _bot() {
         console.log(event);
 
         // Get user profile.
-        var userProfile = line_client.getProfile(event.source.userId);
-        console.log(userProfile);
+        line_client.getProfile(event.source.userId).then((profile) => {
+            console.log(profile.displayName);
+            console.log(profile.userId);
+            console.log(profile.pictureUrl);
+            console.log(profile.statusMessage);
+        });
         
         // Reply messages in messageController.
         messenger(event, userProfile);
