@@ -27,8 +27,8 @@ function _bot() {
         console.log(event);
 
         // Get user profile.
-        //var userProfile = bot.getUserProfile(event.source.useId);
-        var userProfile = event.source.profile(event.source.userId);
+        var userProfile = bot.getUserProfile(event.source.useId);
+        console.log('This is profile');
         console.log(userProfile);
         
         // Reply messages in messageController.
