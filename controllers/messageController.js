@@ -1,6 +1,4 @@
-const options = [
-    
-];
+const msgOptions = '';
 
 function _anser(event){
 
@@ -17,26 +15,35 @@ function _anser(event){
             case '嗨':
             case '哈囉':
             case '你好':
+            case '妳好':
+            case '您好':
             case 'Hello': 
                 event.source.profile().then(function(profile){
-                    event.reply([receivedMsg + ' ' + profile.displayName + '，我能幫你什麼忙嗎？\n這是第二句話']);
+                    event.reply(receivedMsg + ' ' + profile.displayName + '，有什麼我可以幫忙的嗎？');
+                }).catch((err) => {
+                    // error handling
+                    console.log('error!');
                 });
-                return;
+                break;
             case '重複我說的話':
-                anserMsg.push(receivedMsg);
+                event.reply(receivedMsg).then(() => {
+                    // success
+                    console.log('reply successful.');
+                }).catch((err) => {
+                    // error handling
+                    console.log('error!');
+                });
                 break;
             default:
-                anserMsg.push('不知道"' + receivedMsg + '"是什麼意思？');
+                event.reply('不知道"' + receivedMsg + '"是什麼意思？\n您可以輸入“服務清單”來顯示指令與相對應的服務喔(wink)').then(() => {
+                    // success
+                    console.log('reply successful.');
+                }).catch((err) => {
+                    // error handling
+                    console.log('error!');
+                });
+                break;
         };
-
-        // Reply message to chat room.
-        event.reply(anserMsg).then(function(data){
-            // success
-            console.log(msg);
-        }).catch(function(err){
-            // error
-            console.log('error');
-        });
     };
 };
 
