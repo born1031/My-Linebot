@@ -32,11 +32,12 @@ function _bot() {
         console.log(event);
 
         // Get user profile.
-        var userProfile;
+        var userProfile = {};
         line_client.getProfile(event.source.userId).then((profile) => {
-            userProfile = profile;
-            console.log(userProfile);
+            userProfile.displayName = profile.displayName;
+            userProfile.userId = profile.userId;
         });
+        console.log(userProfile);
         
         // Reply messages in messageController.
         messenger(event, userProfile);
