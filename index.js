@@ -1,4 +1,5 @@
 var linebot = require('linebot');
+var line = require('@line/bot-sdk');
 var express = require('express');
 var messenger = require('./controllers/messageController');
 
@@ -7,6 +8,10 @@ var bot = linebot({
     channelSecret: '9914a93854b110443120b46240eae039',
     channelAccessToken: '72jIJyLaqwIKgS5XDmxFx++2s2lcMQXp9ARTPBC7BeHRlObrN7swCwwfJPDcso6nr94n5F3EbXkDCPhWD4325w4fBkRyvYL5I0Uq7bJiOz+Yeiof37Hi4WYZpzoIThvUW+zCppKpLF5pGmIoQ6phjwdB04t89/1O/w1cDnyilFU='
 });
+
+var line_client = new line.Client({
+    channelAccessToken: '72jIJyLaqwIKgS5XDmxFx++2s2lcMQXp9ARTPBC7BeHRlObrN7swCwwfJPDcso6nr94n5F3EbXkDCPhWD4325w4fBkRyvYL5I0Uq7bJiOz+Yeiof37Hi4WYZpzoIThvUW+zCppKpLF5pGmIoQ6phjwdB04t89/1O/w1cDnyilFU='
+})
 
 _bot();
 
@@ -27,8 +32,7 @@ function _bot() {
         console.log(event);
 
         // Get user profile.
-        var userProfile = event.source.profile;
-        console.log('This is profile');
+        var userProfile = line_client.getProfile(event.source.userId);
         console.log(userProfile);
         
         // Reply messages in messageController.
