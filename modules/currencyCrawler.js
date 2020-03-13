@@ -115,13 +115,14 @@ function _getCurrencyRate(infoArray){
         method: 'GET'
     }, function(error, response, body){
         if(error || !body){
+            console.log('這邊出錯了 118');
             return error;
         }else{
             
             // Load body for cheerio to fetch data.
             var bodyInfo = cheerio.load(body);
             var target = bodyInfo(targetClass);
-
+            console.log(target[targetCurrency].children[0].data);
             return target[targetCurrency].children[0].data;
         };
     });
