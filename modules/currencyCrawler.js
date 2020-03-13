@@ -122,8 +122,10 @@ function _getCurrencyRate(infoArray){
             // Load body for cheerio to fetch data.
             var bodyInfo = cheerio.load(body);
             var target = bodyInfo(targetClass);
-            console.log(target[targetCurrency].children[0].data);
-            return target[targetCurrency].children[0].data;
+            
+            var value = target[targetCurrency].children[0].data;
+            console.log(value);
+            return value;
         };
     });
 };
