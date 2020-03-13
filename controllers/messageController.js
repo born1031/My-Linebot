@@ -3,7 +3,7 @@ var serviceList = [
     '飲料喝什麼？',
     '午餐吃什麼？',
     '晚餐吃什麼？',
-    '幣值匯率查詢:{請輸入要查詢的幣值, example: 美金 or USD}',
+    '幣值匯率查詢：{中/英文貨幣}'
 ];
 
 var drinkStores = [];
@@ -48,12 +48,12 @@ function _anser(event){
                 break;
 
             case '指令清單':
-                var replyString = '';
+                var replyString = '您可以輸入以下指令：\n';
 
                 serviceList.forEach((options) => {
                     replyString += (options + '\n');
                 });
-                
+
                 event.reply(replyString).then(() => {
                     console.log('reply successful.');
                 }).catch((err) => {
