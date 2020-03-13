@@ -42,7 +42,7 @@ function _anser(event){
             case '晚餐吃什麼？':
             case '晚餐吃什麼':
                 break;
-            case receivedMsg.indexof('幣值匯率查詢:'):
+            case receivedMsg.indexOf('幣值匯率查詢:'):
                 console.log('AAAAAAAAAAAAAAAAAAA');
                 break;
             default:
