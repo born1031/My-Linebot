@@ -1,8 +1,8 @@
 // Service list
 const msgOptions = [
     '飲料喝什麼？',
-    '晚餐吃什麼？',
     '午餐吃什麼？',
+    '晚餐吃什麼？',
     '幣值匯率查詢:{請輸入要查詢的幣值}',
 ];
 
@@ -32,6 +32,18 @@ function _anser(event){
                     // error handling
                     console.log('error!');
                 });
+                break;
+            case '飲料喝什麼？':
+            case '飲料喝什麼':
+                break;
+            case '午餐吃什麼？':
+            case '午餐吃什麼':
+                break;
+            case '晚餐吃什麼？':
+            case '晚餐吃什麼':
+                break;
+            case receivedMsg.indexof('幣值匯率查詢:'):
+                console.log('AAAAAAAAAAAAAAAAAAA');
                 break;
             default:
                 event.reply(['不知道"' + receivedMsg + '"是什麼意思？', '您可以輸入 "指令清單" 來顯示指令與相對應的服務喔' + emoji_wink]).then(() => {
