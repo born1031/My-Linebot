@@ -40,7 +40,7 @@ function _anser(event){
             case 'Hi':
             case 'Hello': 
                 event.source.profile().then(function(profile){
-                    event.reply(['您好' + profile.displayName + '，有什麼我可以幫忙的嗎？', '輸入 "指令清單" 可以看看有什麼是我能幫到你的喔' + emoji_wink]);
+                    event.reply(['您好 ' + profile.displayName + '，有什麼我可以幫忙的嗎？', '輸入 "指令清單" 可以看看有什麼是我能幫到你的喔' + emoji_wink]);
                 }).catch((err) => {
                     // error handling
                     console.log('error!');
@@ -48,10 +48,12 @@ function _anser(event){
                 break;
 
             case '指令清單':
-                var replyString;
+                var replyString = '';
+
                 serviceList.forEach((options) => {
                     replyString += (options + '\n');
                 });
+                
                 event.reply(replyString).then(() => {
                     console.log('reply successful.');
                 }).catch((err) => {
