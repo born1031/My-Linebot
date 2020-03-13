@@ -1,6 +1,6 @@
 const msgOptions = '飲料喝什麼？';
 
-var emoji_wink = 0x10000C;
+const emoji_wink = String.valueof(Character.toChars(0x10000C));
 
 function _anser(event){
 
