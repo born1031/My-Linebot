@@ -1,6 +1,6 @@
 const msgOptions = '飲料喝什麼？';
 
-const emoji_wink = String.valueof(Character.toChars(0x10000C));
+const emoji_wink = '\uDBC0';
 
 function _anser(event){
 
@@ -19,6 +19,8 @@ function _anser(event){
             case '你好':
             case '妳好':
             case '您好':
+            case 'hi':
+            case 'Hi':
             case 'Hello': 
                 event.source.profile().then(function(profile){
                     event.reply(receivedMsg + ' ' + profile.displayName + '，有什麼我可以幫忙的嗎？、\n輸入”指令清單“可以看看有什麼是我能幫到你的喔' + emoji_wink);
