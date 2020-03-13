@@ -1,6 +1,6 @@
 const msgOptions = '飲料喝什麼？';
 
-const emoji_wink = '\uDBC0\uDC84 LINE emoji';
+const emoji_wink = '\uDBC0\uDC0C';
 
 function _anser(event){
 
