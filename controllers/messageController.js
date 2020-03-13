@@ -84,10 +84,13 @@ function _anser(event){
 function _isCurrencyService(msg){
     var checkMsg;
 
+    
+
     if(msg.indexOf(':') || msg.indexOf('：'))
     {
-        var index_Of_Split = msg.indexOf(':') || msg.indexOf('：');
+        var index_Of_Split = (msg.indexOf(':') || msg.indexOf('：'));
         console.log(index_Of_Split);
+        
         checkMsg = msg.split(index_Of_Split);
 
         if(checkMsg[0] == '幣值匯率查詢'){
