@@ -21,7 +21,7 @@ function _anser(event){
         // Received message.
         var receivedMsg = event.message.text;
 
-        if(receivedMsg.indexOf('幣值匯率查詢:')){
+        if(_isCurrencyService(receivedMsg)){
 
             var currency = _getCurrencyString(receivedMsg);
             console.log(currency);
@@ -46,7 +46,7 @@ function _anser(event){
                     break;
                 case '指令清單':
                     var replyString;
-                    
+
                     serviceList.forEach((options) => {
                         replyString += (options + '\n');
                     });
@@ -79,6 +79,21 @@ function _anser(event){
 
         };
     };
+};
+
+function _isCurrencyService(msg){
+    var checkMsg;
+
+    if(msg.indexOf(':'))
+    {
+        console.log(msg.indexOf(':'));
+        checkMsg = msg.split(':');
+
+        if(checkMsg[0] == '幣值匯率查詢'){
+            return true;
+        };
+    };
+    return false;
 };
 
 function _getCurrencyString(str){
