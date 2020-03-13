@@ -1,9 +1,12 @@
+var currency_crawler = require('../modules/currencyCrawler');
+
 // Service list
 var serviceList = [
     '飲料喝什麼？',
     '午餐吃什麼？',
     '晚餐吃什麼？',
-    '幣值匯率查詢：{中/英文貨幣}'
+    '即期匯率查詢：{中文或英文貨幣}',
+    '現金匯率查詢：{中文或英文貨幣}',
 ];
 
 var drinkStores = [];
@@ -12,6 +15,7 @@ var dinnerStores = [];
 
 // Line emoji
 const emoji_wink = '\uDBC0\uDC0C';
+const emoji_jamesExhausted = '\uDBC0\uDC88';
 
 function _anser(event){
 
@@ -73,7 +77,23 @@ function _anser(event){
             case '晚餐吃什麼':
                 break;
 
-            case '幣值匯率查詢':
+            case '即期匯率查詢':
+            case '現金匯率查詢':
+                var currencyValue = currency_crawler(currencyServiceInfo);
+
+                if(currencyValue == '-'){
+                    var replyMsg = '很抱歉，目前取得不到 ' + currencyServiceInfo[1] + ' 的匯率喔' + emoji_jamesExhausted;
+                }else{
+                    var replyMsg = '目前 ' + currencyServiceInfo[1] + ' 的匯率為：' + currencyValue;
+                }
+
+                event.reply(replyMsg).then(() => {
+                    // success
+                    console.log('reply successful.');
+                }).catch((err) => {
+                    // error handling
+                    console.log('error!');
+                });
                 break;
 
             default:
@@ -108,7 +128,7 @@ function _isCurrencyService(msg){
 
     var tempMsg = msg.split(msg.charAt(index_Of_Split));
 
-    if(tempMsg[0] == '幣值匯率查詢'){
+    if(tempMsg[0] == '即期匯率查詢' || tempMsg[0] == '現金匯率查詢'){
         return tempMsg;
     }else{
         return false;
