@@ -1,4 +1,6 @@
-const msgOptions = '';
+const msgOptions = '飲料喝什麼？';
+
+var emoji_wink = 0x10000C;
 
 function _anser(event){
 
@@ -19,7 +21,7 @@ function _anser(event){
             case '您好':
             case 'Hello': 
                 event.source.profile().then(function(profile){
-                    event.reply(receivedMsg + ' ' + profile.displayName + '，有什麼我可以幫忙的嗎？');
+                    event.reply(receivedMsg + ' ' + profile.displayName + '，有什麼我可以幫忙的嗎？、\n輸入”指令清單“可以看看有什麼是我能幫到你的喔' + emoji_wink);
                 }).catch((err) => {
                     // error handling
                     console.log('error!');
@@ -35,7 +37,7 @@ function _anser(event){
                 });
                 break;
             default:
-                event.reply('不知道"' + receivedMsg + '"是什麼意思？\n您可以輸入“服務清單”來顯示指令與相對應的服務喔(wink)').then(() => {
+                event.reply('不知道"' + receivedMsg + '"是什麼意思？\n您可以輸入“服務清單”來顯示指令與相對應的服務喔' + emoji_wink).then(() => {
                     // success
                     console.log('reply successful.');
                 }).catch((err) => {
