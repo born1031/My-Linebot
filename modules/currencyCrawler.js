@@ -109,28 +109,23 @@ function _getCurrencyRate(infoArray){
         return -1;
     };
 
-    const getValue = new Promise(function(resolve, reject){
-
-        var value;
-
-        // Get the web information by request.
-        request({
-            url: 'https://rate.bot.com.tw/xrt?Lang=zh-TW',
-            method: 'GET'
-        }, function(error, response, body){
-            if(error || !body){
-                value = error;
-            }else{
-                
-                // Load body for cheerio to fetch data.
-                var bodyInfo = cheerio.load(body);
-                var target = bodyInfo(targetClass);
-                
-                value = target[targetCurrency].children[0].data;
-            };
-        });
-
-        resolve(value);
+    // Get the web information by request.
+    request({
+        url: 'https://rate.bot.com.tw/xrt?Lang=zh-TW',
+        method: 'GET'
+    }, function(error, response, body){
+        if(error || !body){
+            return error;
+        }else{
+            
+            // Load body for cheerio to fetch data.
+            var bodyInfo = cheerio.load(body);
+            var target = bodyInfo(targetClass);
+            
+            var value = target[targetCurrency].children[0].data;
+            console.log(value);
+            return value;
+        };
     });
 };
 
