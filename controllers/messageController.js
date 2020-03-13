@@ -86,8 +86,9 @@ function _isCurrencyService(msg){
 
     if(msg.indexOf(':') || msg.indexOf('：'))
     {
-        console.log(msg.indexOf(':') || msg.indexOf('：'));
-        checkMsg = msg.split(':' || '：');
+        var index_Of_Split = msg.indexOf(':') || msg.indexOf('：');
+        console.log(index_Of_Split);
+        checkMsg = msg.split(index_Of_Split);
 
         if(checkMsg[0] == '幣值匯率查詢'){
             return true;
