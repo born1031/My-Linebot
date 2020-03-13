@@ -18,11 +18,11 @@ function _anser(event){
     // Reply message when message type is text.
     if(event.message.type = 'text'){
         
-        // Check event message is currency rate service or not.
-        var currencyServiceInfo = _isCurrencyService(receivedMsg);
-        
         // Received message.
         var receivedMsg = event.message.text;
+
+        // Check event message is currency rate service or not.
+        var currencyServiceInfo = _isCurrencyService(receivedMsg);
 
         if(currencyServiceInfo != false){
             receivedMsg = currencyServiceInfo[0];
