@@ -79,6 +79,7 @@ function _anser(event){
 
             case '即期匯率查詢':
             case '現金匯率查詢':
+                console.log(currencyServiceInfo);
                 currency_crawler(currencyServiceInfo, function(value){
                     if(value == -1){
                         var replyMsg = '輸入的格式有誤喔，請以下列示範在輸入一次\n即期匯率查詢：美金';
