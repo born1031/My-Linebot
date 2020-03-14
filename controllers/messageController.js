@@ -95,6 +95,7 @@ function _anser(event){
                     if(replyMsg != ''){
                         resolve(replyMsg);
                     };
+                    
                 });
                 
                 getCurrencyValue.then(event.reply(replyMsg)).then(() => {
