@@ -117,7 +117,6 @@ function _getCurrencyRate(infoArray, callback){
         if(error || !body){
             callback(error);
         }else{
-            
             // Load body for cheerio to fetch data.
             var bodyInfo = cheerio.load(body);
             var target = bodyInfo(targetClass);
