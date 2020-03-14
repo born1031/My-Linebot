@@ -85,7 +85,7 @@ function _anser(event){
                     }else if(value == '-'){
                         var replyMsg = '很抱歉，目前取得不到 ' + currencyServiceInfo[1] + ' 的匯率喔' + emoji_jamesExhausted;
                     }else{
-                        var replyMsg = '目前 ' + currencyServiceInfo[1] + ' 的匯率為：' + currencyValue;
+                        var replyMsg = '目前 ' + currencyServiceInfo[1] + ' 的匯率為：' + value;
                     };
 
                     event.reply(replyMsg).then(() => {
