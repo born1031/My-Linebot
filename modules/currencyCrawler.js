@@ -105,8 +105,10 @@ function _getCurrencyRate(infoArray, callback){
     var targetClass = _getClassByRateType(infoArray[0]);
     var targetCurrency = _getIndexOfCurrency(infoArray[1]);
 
+    console.log(targetClass, targetCurrency);
+
     if(!targetClass || !targetCurrency){
-        return -1;
+        callback(-1);
     };
 
     // Get the web information by request.
@@ -133,7 +135,7 @@ function _getClassByRateType(rateType){
     if(rateType == '即期匯率查詢'){
         return ".rate-content-sight.text-right.print_hide";
     }else if(rateType == '現金匯率查詢'){
-        return ".rate-content-cash text-right print_hide";
+        return ".rate-content-cash.text-right.print_hide";
     }
     return false;
 };
