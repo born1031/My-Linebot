@@ -99,7 +99,7 @@ var currencyList = [
     }
 ];
 
-function _getCurrencyRate(infoArray){
+function _getCurrencyRate(infoArray, callback){
     
     // pepar information for target.
     var targetClass = _getClassByRateType(infoArray[0]);
@@ -115,7 +115,7 @@ function _getCurrencyRate(infoArray){
         method: 'GET'
     }, function(error, response, body){
         if(error || !body){
-            return error;
+            callback(error);
         }else{
             
             // Load body for cheerio to fetch data.
@@ -124,7 +124,7 @@ function _getCurrencyRate(infoArray){
             
             var value = target[targetCurrency].children[0].data;
             console.log(value);
-            return value;
+            callback(value);
         };
     });
 };

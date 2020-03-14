@@ -79,31 +79,22 @@ function _anser(event){
 
             case '即期匯率查詢':
             case '現金匯率查詢':
-                var getCurrencyValue = new Promise(function(resolve, reject){
-                    
-                    var replyMsg ='';
-                    var currency = currency_crawler(currencyServiceInfo);
-
-                    if(currencyValue == -1){
-                        replyMsg = '輸入的格式有誤喔，請以下列示範在輸入一次\n即期匯率查詢：美金';
-                    }else if(currencyValue == '-'){
-                        replyMsg = '很抱歉，目前取得不到 ' + currencyServiceInfo[1] + ' 的匯率喔' + emoji_jamesExhausted;
+                currency_crawler(currencyServiceInfo, function(value){
+                    if(value == -1){
+                        var replyMsg = '輸入的格式有誤喔，請以下列示範在輸入一次\n即期匯率查詢：美金';
+                    }else if(value == '-'){
+                        var replyMsg = '很抱歉，目前取得不到 ' + currencyServiceInfo[1] + ' 的匯率喔' + emoji_jamesExhausted;
                     }else{
-                        replyMsg = '目前 ' + currencyServiceInfo[1] + ' 的匯率為：' + currencyValue;
+                        var replyMsg = '目前 ' + currencyServiceInfo[1] + ' 的匯率為：' + currencyValue;
                     };
-                    
-                    if(replyMsg != ''){
-                        resolve(replyMsg);
-                    };
-                    
-                });
-                
-                getCurrencyValue.then(event.reply(replyMsg)).then(() => {
-                    // success
-                    console.log('reply successful.');
-                }).catch((err) => {
-                    // error handling
-                    console.log('error!');
+
+                    event.reply(replyMsg).then(() => {
+                        // success
+                        console.log('reply successful.');
+                    }).catch((err) => {
+                        // error handling
+                        console.log('error!');
+                    });
                 });
                 break;
 
