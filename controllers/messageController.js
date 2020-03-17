@@ -92,7 +92,7 @@ function _anser(event){
             case '晚餐吃什麼?':
             case '晚餐吃什麼':
                 var food = food_selector('晚餐');
-                var replyMsg = '這次午餐推薦為：' + food;
+                var replyMsg = '這次晚餐推薦為：' + food;
 
                 event.reply(replyMsg).then(() => {
                     console.log('reply seccessful.');
