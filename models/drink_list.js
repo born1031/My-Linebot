@@ -1,4 +1,4 @@
-module.exports = drinkList = [
+module.exports = [
     {
         name: '五十嵐',
         item: [],
@@ -36,6 +36,11 @@ module.exports = drinkList = [
     },
     {
         name: '麻古茶坊',
+        item: [],
+        adds: []
+    },
+    {
+        name: '茶湯會',
         item: [],
         adds: []
     }

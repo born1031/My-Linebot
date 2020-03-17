@@ -1,5 +1,6 @@
 var currency_crawler = require('../modules/currencyCrawler');
 var drink_selectior = require('../modules/drinkSelector');
+var food_selector = require('../modules/foodSelector');
 
 // Service list
 var serviceList = [
@@ -75,11 +76,29 @@ function _anser(event){
                 break;
 
             case '午餐吃什麼？':
+            case '午餐吃什麼?':
             case '午餐吃什麼':
+                var food = food_selector('午餐');
+                var replyMsg = '這次午餐推薦為：' + food;
+
+                event.reply(replyMsg).then(() => {
+                    console.log('reply seccessful.');
+                }).catch((err) => {
+                    console.log('error!');
+                });
                 break;
 
             case '晚餐吃什麼？':
+            case '晚餐吃什麼?':
             case '晚餐吃什麼':
+                var food = food_selector('晚餐');
+                var replyMsg = '這次午餐推薦為：' + food;
+
+                event.reply(replyMsg).then(() => {
+                    console.log('reply seccessful.');
+                }).catch((err) => {
+                    console.log('error!');
+                });
                 break;
 
             case '即期匯率查詢':
