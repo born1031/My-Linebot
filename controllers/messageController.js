@@ -1,4 +1,5 @@
 var currency_crawler = require('../modules/currencyCrawler');
+var drink_selectior = require('../modules/drinkSelector');
 
 // Service list
 var serviceList = [
@@ -8,10 +9,6 @@ var serviceList = [
     '即期匯率查詢：{中文或英文貨幣}',
     '現金匯率查詢：{中文或英文貨幣}',
 ];
-
-var drinkStores = [];
-var lunchStores = [];
-var dinnerStores = [];
 
 // Line emoji
 const emoji_wink = '\uDBC0\uDC0C';
@@ -67,6 +64,14 @@ function _anser(event){
 
             case '飲料喝什麼？':
             case '飲料喝什麼':
+                var replyMsg = '這次推薦飲品店家為：'
+                var drink = drink_selectior();
+
+                event.reply(replyMsg).then(() => {
+                    console.log('reply seccessful.');
+                }).catch((err) => {
+                    console.log('error!');
+                });
                 break;
 
             case '午餐吃什麼？':

@@ -1,6 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var currencyList = require('../models/testCurrencyList');
+var currencyList = require('../models/currency_list');
 
 
 function _getCurrencyRate(infoArray, callback){
