@@ -64,8 +64,8 @@ function _anser(event){
 
             case '飲料喝什麼？':
             case '飲料喝什麼':
-                var replyMsg = '這次推薦飲品店家為：'
                 var drink = drink_selectior();
+                var replyMsg = '這次推薦飲品店家為：' + drink;
 
                 event.reply(replyMsg).then(() => {
                     console.log('reply seccessful.');
