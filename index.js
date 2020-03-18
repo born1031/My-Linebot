@@ -15,17 +15,17 @@ const linebotParser = bot.parser();
 app.post('/', linebotParser);
 
 // Convert port for heroku
-var server = app.listen(process.env.PORT || 8080, function(){
+var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log('App now running on port: ' + port);
 });
 
 function _bot() {
     // User has sent message.
-    bot.on('message', function(event){
+    bot.on('message', function (event) {
         // Print event.
         console.log(event);
-        
+
         // Reply messages in messageController.
         messenger(event);
     });

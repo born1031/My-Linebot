@@ -15,24 +15,24 @@ var serviceList = [
 const emoji_wink = '\uDBC0\uDC0C';
 const emoji_jamesExhausted = '\uDBC0\uDC88';
 
-function _anser(event){
+function _anser(event) {
 
     // Reply message when message type is text.
-    if(event.message.type = 'text'){
-        
+    if (event.message.type = 'text') {
+
         // Received message.
         var receivedMsg = event.message.text;
 
         // Check event message is currency rate service or not.
         var currencyServiceInfo = _isCurrencyService(receivedMsg);
 
-        if(currencyServiceInfo != false){
+        if (currencyServiceInfo != false) {
             receivedMsg = currencyServiceInfo[0];
-        }else{
+        } else {
             receivedMsg = event.message.text;
         };
 
-        switch(receivedMsg){
+        switch (receivedMsg) {
             case '嗨':
             case '哈囉':
             case '你好':
@@ -40,8 +40,8 @@ function _anser(event){
             case '您好':
             case 'hi':
             case 'Hi':
-            case 'Hello': 
-                event.source.profile().then(function(profile){
+            case 'Hello':
+                event.source.profile().then(function (profile) {
                     event.reply(['您好 ' + profile.displayName + '，有什麼我可以幫忙的嗎？', '輸入 "指令清單" 可以看看有什麼是我能幫到你的喔' + emoji_wink]);
                 }).catch((err) => {
                     // error handling
@@ -104,12 +104,12 @@ function _anser(event){
             case '即期匯率查詢':
             case '現金匯率查詢':
                 console.log(currencyServiceInfo);
-                currency_crawler(currencyServiceInfo, function(value){
-                    if(value == -1){
+                currency_crawler(currencyServiceInfo, function (value) {
+                    if (value == -1) {
                         var replyMsg = '輸入的格式有誤喔，請以下列示範在輸入一次\n即期匯率查詢：美金';
-                    }else if(value == '-'){
+                    } else if (value == '-') {
                         var replyMsg = '很抱歉，目前取得不到 ' + currencyServiceInfo[1] + ' 的匯率喔' + emoji_jamesExhausted;
-                    }else{
+                    } else {
                         var replyMsg = '目前 ' + currencyServiceInfo[1] + ' 的匯率為：' + value;
                     };
 
@@ -141,23 +141,23 @@ function _anser(event){
 Check that is currency service or not.
 If yes, return an array with currency.
 */
-function _isCurrencyService(msg){
+function _isCurrencyService(msg) {
 
-    var index_Of_Split; 
+    var index_Of_Split;
 
-    if(msg.indexOf(':') >= 0){
+    if (msg.indexOf(':') >= 0) {
         index_Of_Split = msg.indexOf(':');
-    }else if(msg.indexOf('：') >= 0){
+    } else if (msg.indexOf('：') >= 0) {
         index_Of_Split = msg.indexOf('：');
-    }else{
+    } else {
         return false;
-    }; 
+    };
 
     var tempMsg = msg.split(msg.charAt(index_Of_Split));
 
-    if(tempMsg[0] == '即期匯率查詢' || tempMsg[0] == '現金匯率查詢'){
+    if (tempMsg[0] == '即期匯率查詢' || tempMsg[0] == '現金匯率查詢') {
         return tempMsg;
-    }else{
+    } else {
         return false;
     };
 };
