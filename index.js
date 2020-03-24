@@ -8,7 +8,7 @@ var bot = linebot({
     channelAccessToken: '72jIJyLaqwIKgS5XDmxFx++2s2lcMQXp9ARTPBC7BeHRlObrN7swCwwfJPDcso6nr94n5F3EbXkDCPhWD4325w4fBkRyvYL5I0Uq7bJiOz+Yeiof37Hi4WYZpzoIThvUW+zCppKpLF5pGmIoQ6phjwdB04t89/1O/w1cDnyilFU='
 });
 
-const linebotParser = linebot.parser();
+const linebotParser = bot.parser();
 const app = express();
 
 _bot();
