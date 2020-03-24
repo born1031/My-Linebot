@@ -22,10 +22,10 @@ var server = app.listen(process.env.PORT || 8080, function(){
 
 function _bot() {
     // User has sent message.
-    bot.on('message', function (event) {
+    bot.on('message', function(event){
         // Print event.
         console.log(event);
-
+        
         // Reply messages in messageController.
         messenger(event);
     });
