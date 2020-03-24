@@ -13,6 +13,7 @@ function _getCurrencyRate(infoArray, callback){
 
     if(!targetClass || !targetCurrency){
         callback(-1);
+        return;
     };
 
     // Get the web information by request.
