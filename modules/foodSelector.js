@@ -8,7 +8,6 @@ function _getRandomFood(type){
     var maxNum = tempList.length - 1;
     var randomNum = Math.floor(Math.random() * maxNum);
 
-    console.log(tempList[randomNum].name);
     return tempList[randomNum].name;
 };
 
